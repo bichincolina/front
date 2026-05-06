@@ -38,7 +38,6 @@ const PedidoTable = ({
           ) : (
             pedidos.map((pedido) => (
               <tr key={pedido.id}>
-                <td>{pedido.numeroPedido}</td>
                 <td>{pedido.descripcion}</td>
                 <td>${pedido.total}</td>
                 <td>

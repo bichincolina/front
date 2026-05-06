@@ -6,7 +6,6 @@ interface PedidoFormProps {
 }
 
 const PedidoForm = ({ onSubmit }: PedidoFormProps) => {
-  const [numeroPedido, setNumeroPedido] = useState("");
   const [total, setTotal] = useState("");
   const [descripcion, setDescripcion] = useState("");
 
@@ -14,14 +13,12 @@ const PedidoForm = ({ onSubmit }: PedidoFormProps) => {
     e.preventDefault();
 
     const nuevoPedido: Pedido = {
-      numeroPedido,
       total: Number(total),
       descripcion,
     };
 
     onSubmit(nuevoPedido);
 
-    setNumeroPedido("");
     setTotal("");
     setDescripcion("");
   };
@@ -29,17 +26,6 @@ const PedidoForm = ({ onSubmit }: PedidoFormProps) => {
   return (
     <form className="pedido-form" onSubmit={handleSubmit}>
       <h2>Crear Pedido</h2>
-
-      <div>
-        <label>Número de pedido</label>
-        <input
-          type="text"
-          value={numeroPedido}
-          onChange={(e) => setNumeroPedido(e.target.value)}
-          placeholder="Ej: PED-001"
-          required
-        />
-      </div>
 
       <div>
         <label>Total</label>
